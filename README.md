@@ -17,6 +17,7 @@ brew install vim --with-lua
 ```
 
 Make sure `/usr/local/bin` is in your `$PATH` **before** `/usr/bin`.
+In your `.bash_profile` / `.zshrc` add: `export 'EDITOR=/usr/local/bin/vim'`.
 
 # Install
 ```sh
