@@ -1,0 +1,9 @@
+[submodule "bundle/vim-railscasts-theme"]
+	path = bundle/vim-railscasts-theme
+	url = https://github.com/jpo/vim-railscasts-theme.git
+[submodule "bundle/neocomplete.vim"]
+	path = bundle/neocomplete.vim
+	url = https://github.com/Shougo/neocomplete.vim.git
+[submodule "bundle/vim-go"]
+	path = bundle/vim-go
+	url = https://github.com/fatih/vim-go.git
