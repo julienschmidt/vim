@@ -170,8 +170,12 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " -----------------
 " Bindings
 " -----------------
-"Fn keys
+" toogle Tagbar
 nmap <F8> :TagbarToggle<CR>
+
+" toggle pastemode
+nnoremap <F12> :set invnumber number?<CR>:set invpaste paste?<CR>
+set pastetoggle=<F12>
 
 " use w!! to save files with sudo
 cmap w!! w !sudo tee > /dev/null %
