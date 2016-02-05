@@ -35,6 +35,7 @@ highlight SpecialKey guifg=#808080
 syntax on                          "syntax highlighting
 set nu                             "show line numbers
 set ru                             "show ruler at cursor pos
+set cursorline                     "highlight current line
 set hlsearch                       "highlight search results
 set showmatch                      "matching parentheses
 
@@ -44,6 +45,7 @@ autocmd CursorHold * exe printf('match WordUnderCursor /\V\<%s\>/', escape(expan
 
 "statusbar
 set laststatus=2
+let g:airline_theme = 'bubblegum'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
@@ -57,10 +59,21 @@ set ignorecase smartcase           "ignore case, except if contains uppercase
 set noerrorbells visualbell t_vb=  "don't ring the fucking bell
 set incsearch                      "incremental search
 set mouse=a                        "enable mouse
+set mousehide                      "Hide the mouse cursor while typing
+set virtualedit=onemore            "Allow for cursor beyond last character
 set sc                             "show incomplete commmands
 set tw=72                          "textwidth 72 characters
 
 autocmd GUIEnter * set visualbell t_vb=
+
+if has('clipboard')
+    if has('unnamedplus')          "use + register for copy-paste when available
+        set clipboard=unnamed,unnamedplus
+    else                           "otherwise try to  use * register
+        set clipboard=unnamed
+    endif
+endif
+
 
 " Tell vim to remember certain things when we exit
 "  '10  :  marks will be remembered for up to 10 previously edited files
@@ -148,6 +161,8 @@ au FileType python setlocal expandtab
 "linux code looks really ugly without 8-sized tabs
 autocmd BufRead /usr/src/linux* call WhitespaceTab(8)
 
+"always start in first line in git commit messages
+au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
 " -----------------
 " Bindings
