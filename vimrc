@@ -74,6 +74,9 @@ if has('clipboard')
     endif
 endif
 
+if has('macunix')
+    let g:tagbar_ctags_bin='/usr/local/bin/ctags'  "proper Ctags locations
+endif
 
 " Tell vim to remember certain things when we exit
 "  '10  :  marks will be remembered for up to 10 previously edited files
@@ -167,6 +170,9 @@ au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 " -----------------
 " Bindings
 " -----------------
+"Fn keys
+nmap <F8> :TagbarToggle<CR>
+
 " use w!! to save files with sudo
 cmap w!! w !sudo tee > /dev/null %
 
