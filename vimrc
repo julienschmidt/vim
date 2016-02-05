@@ -24,7 +24,6 @@ set ff=unix                        "unix line endings
 " -----------------
 " Theme
 " -----------------
-" set guifont=Monaco\ for\ Powerline:h12
 set background=dark
 
 " load railscasts theme
@@ -43,6 +42,11 @@ set showmatch                      "matching parentheses
 highlight WordUnderCursor cterm=underline "ctermfg=7
 autocmd CursorHold * exe printf('match WordUnderCursor /\V\<%s\>/', escape(expand('<cword>'), '/\'))
 
+"statusbar
+set laststatus=2
+set guifont=Monaco\ for\ Powerline:h12
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 
 " ----------------
 " Behavior
@@ -85,7 +89,6 @@ augroup END
 " -----------------
 let g:neocomplete#enable_at_startup = 1
 set wmnu                           "show possible completions
-
 
 
 " ----------------
@@ -164,12 +167,4 @@ autocmd BufWritePost ~/.vimrc source %
 
 " autosave delay, cursorhold trigger, default: 4000ms
 setl updatetime=400
-
-
-
-
-
-
-
-
 
