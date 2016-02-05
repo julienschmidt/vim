@@ -188,6 +188,7 @@ autocmd BufWritePost * if &diff == 1 | diffupdate | endif
 
 " refresh vimrc after saving
 autocmd BufWritePost ~/.vimrc source %
+autocmd BufWritePost ~/.vim/vimrc source %
 
 " autosave delay, cursorhold trigger, default: 4000ms
 setl updatetime=400
