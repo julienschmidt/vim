@@ -149,6 +149,19 @@ cmap ws8 call WhitespaceSpace(8)
 cmap wt4 call WhitespaceTab(4)
 cmap wt8 call WhitespaceTab(8)
 
+" strip whitespace
+function! StripTrailingWhitespace()
+    " save last search and cursor position
+    let _s=@/
+    let l = line(".")
+    let c = col(".")
+    " strip
+    %s/\s\+$//e
+    " restore previous search history and cursor position
+    let @/=_s
+    call cursor(l, c)
+endfunction
+
 
 " -----------------
 " Code
@@ -166,6 +179,13 @@ autocmd BufRead /usr/src/linux* call WhitespaceTab(8)
 
 "always start in first line in git commit messages
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+
+"refresh vimrc after saving
+autocmd BufWritePost ~/.vimrc source %
+autocmd BufWritePost ~/.vim/vimrc source %
+
+"strip whitespace
+autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> call StripTrailingWhitespace()
 
 " -----------------
 " Bindings
@@ -185,10 +205,6 @@ cmap diffw exec 'w !git diff --no-index -- - ' . shellescape(expand('%'))
 
 " diff refresh on write
 autocmd BufWritePost * if &diff == 1 | diffupdate | endif
-
-" refresh vimrc after saving
-autocmd BufWritePost ~/.vimrc source %
-autocmd BufWritePost ~/.vim/vimrc source %
 
 " autosave delay, cursorhold trigger, default: 4000ms
 setl updatetime=400
