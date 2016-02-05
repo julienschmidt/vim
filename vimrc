@@ -1,15 +1,15 @@
 " -----------------
-" Plugins
-" -----------------
-execute pathogen#infect()
-
-
-" -----------------
 " General
 " -----------------
 set nocp                           "enable Vi incompatible features
 filetype plugin on                 "per-filetype settings
 filetype indent on                 "per-filetype indentation
+
+
+" -----------------
+" Plugins
+" -----------------
+execute pathogen#infect()
 
 
 " ----------------
@@ -44,7 +44,6 @@ autocmd CursorHold * exe printf('match WordUnderCursor /\V\<%s\>/', escape(expan
 
 "statusbar
 set laststatus=2
-set guifont=Monaco\ for\ Powerline:h12
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
