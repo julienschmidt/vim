@@ -26,7 +26,6 @@ In your `.bash_profile` / `.zshrc` add: `export 'EDITOR=/usr/local/bin/vim'`.
 
 ## Install
 ```sh
-cd ~
 git clone https://github.com/julienschmidt/vim.git ~/.vim
 ln -s ~/.vim/vimrc ~/.vimrc
 cd ~/.vim
