@@ -38,6 +38,7 @@ set ru                             "show ruler at cursor pos
 set cursorline                     "highlight current line
 set hlsearch                       "highlight search results
 set showmatch                      "matching parentheses
+set gcr=n:blinkon0                 "turn off blinking cursor in normal mode
 
 " highlight the word under cursor (CursorMoved is inperformant)
 highlight WordUnderCursor cterm=underline "ctermfg=7
@@ -166,6 +167,17 @@ endfunction
 " -----------------
 " Code
 " -----------------
+"go
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+let g:go_fmt_command = "goimports"
+let g:syntastic_go_checkers = ['golint', 'govet', 'errcheck']
+let g:syntastic_mode_map = { 'mode': 'active', 'passive_filetypes': ['go'] }
+
 "Markdown
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 let g:markdown_fenced_languages = ['html', 'python', 'bash=sh']
