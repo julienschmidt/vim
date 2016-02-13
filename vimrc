@@ -24,6 +24,7 @@ set ff=unix                        "unix line endings
 " -----------------
 " Theme
 " -----------------
+set t_Co=256
 set background=dark
 
 " load railscasts theme
