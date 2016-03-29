@@ -1,6 +1,8 @@
 # vim config
 My personal vim config. Hosted here so that I can copy and synchronize
-it easily onto new devices.
+it easily onto new devices
+
+![vim](https://cloud.githubusercontent.com/assets/944947/14110819/6e00cf08-f5c8-11e5-8cd1-516d201e4490.png)
 
 ## Requirements
 
